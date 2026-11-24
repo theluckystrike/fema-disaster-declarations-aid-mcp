@@ -1,0 +1,55 @@
+{
+  "name": "fema-disaster-declarations-aid-mcp",
+  "version": "1.0.0",
+  "description": "FEMA disaster declarations and federal aid MCP server: search US federal disaster declarations, check county-level eligibility (insurance, mortgage, IRS disaster relief), inspect Individual & Public Assistance grant totals, and track recent disasters via the official OpenFEMA API. Hosted, no key.",
+  "type": "module",
+  "license": "MIT",
+  "author": "theluckystrike",
+  "mcpName": "io.github.theluckystrike/fema-disaster-declarations-aid-mcp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theluckystrike/fema-disaster-declarations-aid-mcp"
+  },
+  "homepage": "https://www.mcpstamp.com/free-servers/",
+  "bin": {
+    "fema-disaster-declarations-aid-mcp": "dist/stdio.js"
+  },
+  "main": "dist/stdio.js",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test",
+    "start": "node dist/stdio.js",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.20.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "fema",
+    "openfema",
+    "disaster-declarations",
+    "emergency-management",
+    "insurance",
+    "real-estate",
+    "federal-aid",
+    "open-data",
+    "cloudflare-workers"
+  ]
+}
