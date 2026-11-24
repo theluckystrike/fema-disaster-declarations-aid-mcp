@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.theluckystrike/fema-disaster-declarations-aid-mcp",
   "title": "FEMA Disaster Declarations & Aid MCP",
-  "description": "US federal disaster declarations, county eligibility checks, and FEMA Individual/Public Assistance aid totals.",
+  "description": "US federal disaster declarations, county eligibility, and FEMA Individual/Public Assistance totals.",
   "version": "1.0.0",
   "repository": {
     "url": "https://github.com/theluckystrike/fema-disaster-declarations-aid-mcp",

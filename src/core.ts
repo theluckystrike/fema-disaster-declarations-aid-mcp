@@ -134,7 +134,7 @@ export async function searchDisasters(fetchText: FetchText, args: {
   const clauses: string[] = [];
   if (st) clauses.push(`stateCode eq '${st}'`);
   if (args.incident_type) {
-    clauses.push(`contains(tolower(incidentType),'${escapeOdataString(args.incident_type.toLowerCase())}')`);
+    clauses.push(`contains(incidentType,'${escapeOdataString(args.incident_type)}')`);
   }
   if (args.declaration_type) {
     const mapped = DECL_TYPE_MAP[args.declaration_type.trim().toUpperCase()];
@@ -144,7 +144,7 @@ export async function searchDisasters(fetchText: FetchText, args: {
     clauses.push(`declarationType eq '${mapped.web}'`);
   }
   if (args.keyword) {
-    clauses.push(`contains(tolower(disasterName),'${escapeOdataString(args.keyword.toLowerCase())}')`);
+    clauses.push(`contains(disasterName,'${escapeOdataString(args.keyword)}')`);
   }
   if (args.start_year) {
     clauses.push(`declarationDate ge '${args.start_year}-01-01T00:00:00.000Z'`);
@@ -211,10 +211,10 @@ export async function checkCountyDisasters(fetchText: FetchText, args: {
       throw new InputError('Provide either a 5-digit county fips code OR both state and county name.');
     }
     const countyClean = escapeOdataString(
-      args.county.trim().replace(/\s+(county|parish|borough|municipality)$/i, '').toLowerCase(),
+      args.county.trim().replace(/\s+(county|parish|borough|municipality)$/i, ''),
     );
     clauses.push(`state eq '${st}'`);
-    clauses.push(`contains(tolower(designatedArea),'${countyClean}')`);
+    clauses.push(`contains(designatedArea,'${countyClean}')`);
     label = `${args.county.trim()}, ${st}`;
   }
 
@@ -222,7 +222,7 @@ export async function checkCountyDisasters(fetchText: FetchText, args: {
     clauses.push(`declarationDate ge '${args.start_year}-01-01T00:00:00.000Z'`);
   }
   if (args.incident_type) {
-    clauses.push(`contains(tolower(incidentType),'${escapeOdataString(args.incident_type.toLowerCase())}')`);
+    clauses.push(`contains(incidentType,'${escapeOdataString(args.incident_type)}')`);
   }
 
   const limit = Math.min(50, Math.max(1, args.limit ?? 20));
