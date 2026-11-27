@@ -3,11 +3,12 @@
   "name": "io.github.theluckystrike/fema-disaster-declarations-aid-mcp",
   "title": "FEMA Disaster Declarations & Aid MCP",
   "description": "US federal disaster declarations, county eligibility, and FEMA Individual/Public Assistance totals.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "url": "https://github.com/theluckystrike/fema-disaster-declarations-aid-mcp",
     "source": "github"
   },
+  "websiteUrl": "https://www.mcpstamp.com/free-servers/fema-disaster-declarations-aid-mcp/",
   "remotes": [
     {
       "type": "streamable-http",
